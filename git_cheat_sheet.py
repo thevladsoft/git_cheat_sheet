@@ -6,12 +6,18 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
-
+#podria usar "apropos git-" para saber las paginas del man que contengan git-etc.
 
         
 app = QtGui.QApplication(sys.argv) 
 texty = QtGui.QTextBrowser()
+texty_2 = QtGui.QTextBrowser()
 vgrid = QtGui.QGridLayout()
+taby = QTabWidget()
+tabu = QTabBar()
+#taby.setTabPosition(QTabWidget.West)
+#tabu.setFixedHeight(60)
+
 
 #texty = QtGui.QTextEdit()
 #const QUrl uri
@@ -43,13 +49,29 @@ grid=QGridLayout()
 #hgrid.addWidget(boton2)
 #hgrid.addWidget(boton3)
 
-grid.addWidget(boton,0,0)
-grid.addWidget(boton2,0,1)
-grid.addWidget(boton3,0,2)
+#taby.addTab("uno")
+#taby.addTab("dos")
+taby.addTab(texty,"uno")
+taby.addTab(texty_2,"man")
+
+tabu.addTab("a")
+tabu.addTab("b")
+#tabu.setTabPosition(QTabWidget.West)
+tabu.setShape(6)
+
+#grid.addWidget(taby,0,0,1,3)
+
+grid.addWidget(boton,0,1)
+grid.addWidget(boton2,0,2)
+grid.addWidget(boton3,0,3)
 
 #vgrid.addWidget(hgrid.widget())
 #vgrid.addWidget(texty)
-grid.addWidget(texty,1,0,1,3)
+
+#grid.addWidget(texty,2,0,1,3)
+grid.addWidget(taby,1,1,1,3)
+
+grid.addWidget(tabu,1,0,1,1)
 
 ventana= QWidget()
 #ventana.setLayout(vgrid)
@@ -65,9 +87,9 @@ def printuri(url):
     print "kioclient exec man:"+url.toString()
   #print uri
   #subprocess.call("kioclient exec man:"+url.toString())
-    subprocess.call(["kioclient", "exec", "man:"+url.toString()])
-    texty.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
-    texty.setOpenLinks(True)
+    #subprocess.call(["kioclient", "exec", "man:"+url.toString()])
+    texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
+    #texty.setOpenLinks(True)
 
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)

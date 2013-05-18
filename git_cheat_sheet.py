@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import subprocess
 #from time import sleep
@@ -88,12 +89,13 @@ def printuri(url):
   #print uri
   #subprocess.call("kioclient exec man:"+url.toString())
     #subprocess.call(["kioclient", "exec", "man:"+url.toString()])
-    texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
+    #texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
+    texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])
     #texty.setOpenLinks(True)
 
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
-boton.clicked.connect(texty.backward)
+boton.clicked.connect(texty_2.backward)
 #def anchorClicked(uri):
 #  print uri
 

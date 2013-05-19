@@ -1,0 +1,4 @@
+para ver páginas del man que comienzen por git:
+ apropos ^git
+Ver páginas en formato html (necesita groff)
+ man --troff-device=html <nombre>

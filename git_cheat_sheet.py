@@ -19,6 +19,7 @@ tabu = QTabBar()
 #taby.setTabPosition(QTabWidget.West)
 #tabu.setFixedHeight(60)
 
+anclas = ["Setup","Configuration"]
 
 #texty = QtGui.QTextEdit()
 #const QUrl uri
@@ -92,10 +93,15 @@ def printuri(url):
     #texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
     texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])
     #texty.setOpenLinks(True)
+    
+def anchory(i):
+   texty.scrollToAnchor(anclas[i])
 
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
 boton.clicked.connect(texty_2.backward)
+#boton2.clicked.connect(anchory)
+tabu.currentChanged.connect(anchory)
 #def anchorClicked(uri):
 #  print uri
 

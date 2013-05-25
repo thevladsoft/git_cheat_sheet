@@ -54,7 +54,8 @@ grid=QGridLayout()
 #hgrid.addWidget(boton2)
 #hgrid.addWidget(boton3)
 howto=QUrl(QString("https://www.kernel.org/pub/software/scm/git/docs/howto-index.html"))
-weby.setUrl(howto)
+weby.setHtml("<center><p style=\"font-size:300%;color:blue\"><b>Git's How Tos</b></p></center>")
+weby.load(howto)
 
 #def howtos_changing(widget):
   #taby.setTabText(taby.indexOf(weby),"howtos(Loading...)")
@@ -120,7 +121,7 @@ def anchory(i):
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
 boton.clicked.connect(texty_2.backward)
-boton2.clicked.connect(lambda:weby.setUrl(howto))
+boton2.clicked.connect(lambda:weby.load(howto))
 tabu.currentChanged.connect(anchory)
 #def anchorClicked(uri):
 #  print uri

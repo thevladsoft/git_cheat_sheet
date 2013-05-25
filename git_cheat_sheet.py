@@ -6,6 +6,7 @@ import subprocess
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+from PyQt4.QtWebKit import QWebView
 
 #podria usar "apropos git-" para saber las paginas del man que contengan git-etc.
 
@@ -43,6 +44,8 @@ texty.setOpenLinks(False)
 #texty.setOpenExternalLinks(True)
 #texty.show()
 
+weby=QWebView()
+
 vgrid= QVBoxLayout()
 hgrid= QHBoxLayout()
 grid=QGridLayout()
@@ -50,11 +53,28 @@ grid=QGridLayout()
 #hgrid.addWidget(boton)
 #hgrid.addWidget(boton2)
 #hgrid.addWidget(boton3)
+howto=QUrl(QString("https://www.kernel.org/pub/software/scm/git/docs/howto-index.html"))
+weby.setUrl(howto)
+
+#def howtos_changing(widget):
+  #taby.setTabText(taby.indexOf(weby),"howtos(Loading...)")
+  ##print("a")
+  
+#def howtos_changed():
+  #taby.setTabText(taby.indexOf(weby),"howtos")
+  ##print("b")
+
+weby.loadStarted.connect(lambda : taby.setTabText(taby.indexOf(weby),"howtos(Loading...)"))
+weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
 
 #taby.addTab("uno")
 #taby.addTab("dos")
 taby.addTab(texty,"uno")
 taby.addTab(texty_2,"man")
+taby.addTab(weby,"howtos(Loading...)")
+
+
+
 
 tabu.addTab("a")
 tabu.addTab("b")
@@ -100,7 +120,7 @@ def anchory(i):
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
 boton.clicked.connect(texty_2.backward)
-#boton2.clicked.connect(anchory)
+boton2.clicked.connect(lambda:weby.setUrl(howto))
 tabu.currentChanged.connect(anchory)
 #def anchorClicked(uri):
 #  print uri

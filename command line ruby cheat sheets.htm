@@ -309,10 +309,10 @@ Branching
   removes a branch from a remote repository.
   Example: git push origin :old_branch_to_be_deleted
 
-<a href="git-">git co &lt;branch&gt; &lt;path to new file&gt;</a>
+<a href="git-">git checkout &lt;branch&gt; -- &lt;path to new file&gt;</a>
   Checkout a file from another branch and add it to this branch. File
   will still need to be added to the git branch, but it's present.
-  Eg. git co remote_at_origin__tick702_antifraud_blocking ..../...nt_elements_for_iframe_blocked_page.rb
+  Eg. git checkout remote_at_origin__tick702_antifraud_blocking -- ..../...nt_elements_for_iframe_blocked_page.rb
 
 <a href="git-">git show &lt;branch&gt; -- &lt;path to file that does not exist&gt;</a>
   Eg. git show remote_tick702 -- path/to/fubar.txt
@@ -607,9 +607,9 @@ Tags
 <a href="git-">git tag -l</a>
   Will list all tags defined in the repository.
 
-<a href="git-">git co &lt;tag_name&gt;</a>
+<a href="git-">git checkout &lt;tag_name&gt;</a>
   Will checkout the code for a particular tag. After this you'll
-  probably want to do: 'git co -b &lt;some branch name&gt;' to define
+  probably want to do: 'git checkout -b &lt;some branch name&gt;' to define
   a branch. Any changes you now make can be committed to that
   branch and later merged.
 

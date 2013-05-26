@@ -86,7 +86,7 @@ taby.addTab(weby,"howtos(Loading...)")
 f = taby.font()
 f.setPixelSize(12)
 f.setBold(True)
-taby.setFont(f)
+taby.tabBar().setFont(f)
 
 for x in anclas:
     tabu.addTab(x)

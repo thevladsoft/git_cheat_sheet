@@ -83,6 +83,10 @@ widget_taby1.setLayout(layi_taby1)
 taby.addTab(widget_taby1,"uno")
 taby.addTab(texty_2,"man")
 taby.addTab(weby,"howtos(Loading...)")
+f = taby.font()
+f.setPixelSize(12)
+f.setBold(True)
+taby.setFont(f)
 
 for x in anclas:
     tabu.addTab(x)
@@ -140,7 +144,7 @@ print p.color(QPalette.Window).name()
                            
                            #"font: bold;"
                            #)
-taby.setStyleSheet("padding: 6px")
+#taby.setStyleSheet("padding: 6px")
                            
 widget_taby1.setStyleSheet(#"QTabBar::tab {font: normal;}"
                            "QTabBar::tab { border: 3px solid ;"

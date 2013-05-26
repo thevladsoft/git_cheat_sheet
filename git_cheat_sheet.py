@@ -97,6 +97,7 @@ weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
 widget_taby1 = QWidget()
 layi_taby1 = QHBoxLayout()
 widget_taby1.setLayout(layi_taby1)
+taby.setDocumentMode(True)
 
 #taby.addTab("uno")
 #taby.addTab("dos")

@@ -20,6 +20,8 @@ tabu = QTabBar()
 #taby.setTabPosition(QTabWidget.West)
 #tabu.setFixedHeight(60)
 
+
+
 anclas = ["Setup","Config.","Info","Add/Del","Ignoring","Staging","Unstage","Commit"
           ,"Branch.","Merging","Cherry-Pick","Squash.","Conflicts","Sharing","Reverting"
           ,"Fix","Plumbing","Stashing","Remotes","Submodules","Patches","Tags","Archive"
@@ -150,15 +152,17 @@ widget_taby1.setStyleSheet(#"QTabBar::tab {font: normal;}"
                            "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
                            "stop: 0 "+p.color(QPalette.Mid).name()+","#ffffff,"
                            "stop: 1.0  "+p.color(QPalette.Button).name()+");" #lightgray);"
-                           "color: white;"
+                           "color: black;"
                            "padding: 5px;"
                            "border-top-left-radius: 15px;"
                            "border-bottom-right-radius: 10px ;"
                            #"border-top-left-radius: 0px;"
                            #"border-bottom-right-radius: 0px "
                            "}"
+                           
                            #"QTabBar::tab:selected { background: gray; } ")
-                           "QTabBar::tab:selected {  background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           "QTabBar::tab:selected {"  
+                           "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
                            "stop: 0 "+p.color(QPalette.Dark).name()+","
                            "stop: 1.0  "+p.color(QPalette.Mid).name()+");}"
                            )

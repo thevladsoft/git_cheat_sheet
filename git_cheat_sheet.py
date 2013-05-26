@@ -20,7 +20,10 @@ tabu = QTabBar()
 #taby.setTabPosition(QTabWidget.West)
 #tabu.setFixedHeight(60)
 
-anclas = ["Setup","Configuration"]
+anclas = ["Setup","Config.","Info","Add/Del","Ignoring","Staging","Unstage","Commit"
+          ,"Branch.","Merging","Cherry-Pick","Squash.","Conflicts","Sharing","Reverting"
+          ,"Fix","Plumbing","Stashing","Remotes","Submodules","Patches","Tags","Archive"
+          ,"Instaweb","Env vars.","History change"]
 
 #texty = QtGui.QTextEdit()
 #const QUrl uri

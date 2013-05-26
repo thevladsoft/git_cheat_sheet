@@ -11,7 +11,7 @@
 
 <div class="content"><pre>
 
-<a name="Setup">Setup</a>
+<a name="Setup"><b>Setup</b></a>
 -----
 
 <a href="git-clone">git clone &lt;repo&gt;</a>
@@ -63,7 +63,7 @@ Add aliases to your ~/.gitconfig file:
     ign = ls-files -o -i --exclude-standard
 
 
-<a name="Configuration">Configuration</a>
+<a name="Config."><b>Configuration</b></a>
 -------------
 
 <a href="git-config">git config -e [--global]</a>
@@ -93,7 +93,7 @@ You can add &quot;--global&quot; after &quot;git config&quot; to any of these co
 apply to all git repos (writes to ~/.gitconfig).
 
 
-Info
+<a name="Info"><b>Info</b></a>
 ----
 <a href="git-reflog">git reflog</a>
   Use this to recover from *major* mess ups! It's basically a log of the
@@ -166,7 +166,7 @@ Info
   show the current version on the remote repo. This can be used to check whether
   a local is required by comparing the local head revision.
 
-Adding / Deleting
+<a name="Add/Del"><b>Adding / Deleting</b></a>
 -----------------
 
 <a href="git-">git add &lt;file1&gt; &lt;file2&gt; ...</a>
@@ -188,7 +188,7 @@ Adding / Deleting
 <a href="git-">git rm --cached &lt;file1&gt; &lt;file2&gt; ...</a>
   commits absence of &lt;file1&gt;, &lt;file2&gt;, etc... from the project
 
-Ignoring
+<a name="Ignoring"><b>Ignoring</b></a>
 ---------
 
 Option 1:
@@ -201,7 +201,7 @@ Add a file .gitignore to the root of your project. This file will be checked in.
 
 Either way you need to add patterns to exclude to these files.
 
-Staging
+<a name="Staging"><b>Staging</b></a>
 -------
 
 <a href="git-">git add &lt;file1&gt; &lt;file2&gt; ...</a>
@@ -219,14 +219,14 @@ Staging
   interactively add files/changes to the staging area. For a simpler
   mode (no menu), try `git add --patch` (above)
 
-Unstaging
+<a name="Unstage"><b>Unstaging</b></a>
 ---------
 
 <a href="git-">git reset HEAD &lt;file1&gt; &lt;file2&gt; ...</a>
   remove the specified files from the next commit
 
 
-Committing
+<a name="Commit"><b>Committing</b></a>
 ----------
 
 <a href="git-">git commit &lt;file1&gt; &lt;file2&gt; ... [-m &lt;msg&gt;]</a>
@@ -248,7 +248,7 @@ Committing
   redo previous commit, including changes made to &lt;file1&gt;, &lt;file2&gt;, etc...
 
 
-Branching
+<a name="Branch."><b>Branching</b></a>
 ---------
 
 <a href="git-">git branch</a>
@@ -323,7 +323,7 @@ Branching
   Show the contents of a file at the specific revision. Note: path has to be
   absolute within the repo.
 
-Merging
+<a name="Merging"><b>Merging</b></a>
 -------
 
 <a href="git-">git merge &lt;branch&gt;</a>
@@ -340,7 +340,7 @@ Merging
   &lt;branch&gt;, using the current tree as the new tree
 
 
-Cherry-Picking
+<a name="Cherry-Pick"><b>Cherry-Picking</b></a>
 --------------
 
 <a href="git-">git cherry-pick [--edit] [-n] [-m parent-number] [-s] [-x] &lt;commit&gt;</a>
@@ -361,7 +361,7 @@ Find the commit in the repository that contains the file blob:
     done
 
 
-Squashing
+<a name="Squash."><b>Squashing</b></a>
 ---------
 WARNING: &quot;git rebase&quot; changes history. Be careful. Google it.
 
@@ -370,7 +370,7 @@ WARNING: &quot;git rebase&quot; changes history. Be careful. Google it.
   squash the last 10 commits into one big commit
 
 
-Conflicts
+<a name="Conflicts"><b>Conflicts</b></a>
 ---------
 
 <a href="git-">git mergetool</a>
@@ -388,7 +388,7 @@ Once all conflicts are resolved and staged, commit the pending merge with:
   git commit
 
 
-Sharing
+<a name="Sharing"><b>Sharing</b></a>
 -------
 
 <a href="git-">git fetch &lt;remote&gt;</a>
@@ -416,7 +416,7 @@ Sharing
   Which, in fact, is the same as git push origin &lt;branch&gt; but a little
   more obvious what is happening.
 
-Reverting
+<a name="Reverting"><b>Reverting</b></a>
 ---------
 
 <a href="git-">git revert &lt;rev&gt;</a>
@@ -432,7 +432,7 @@ Reverting
   to &quot;svn revert&quot; if you're used to Subversion commands
 
 
-Fix mistakes / Undo
+<a name="Fix"><b>Fix mistakes / Undo</b></a>
 -------------------
 
 <a href="git-">git reset --hard</a>
@@ -455,7 +455,7 @@ Fix mistakes / Undo
   Also used to edit commit message of previous commit.
 
 
-Plumbing
+<a name="Plumbing"><b>Plumbing</b></a>
 --------
 
 <a href="test">test &lt;sha1-A&gt; = $(git merge-base &lt;sha1-A&gt; &lt;sha1-B&gt;)</a>
@@ -463,7 +463,7 @@ Plumbing
   non-zero exit status is false.
 
 
-Stashing
+<a name="Stashing"><b>Stashing</b></a>
 --------
 
 <a href="git-">git stash</a>
@@ -492,7 +492,7 @@ Stashing
   delete all current stashes
 
 
-Remotes
+<a name="Remotes"><b>Remotes</b></a>
 -------
 
 <a href="git-">git remote add &lt;remote&gt; &lt;remote_URL&gt;</a>
@@ -543,7 +543,7 @@ Remotes
   this 'git branch --track ...' can be used to track a branch
   from the new remote.
 
-Submodules
+<a name="Submodules"><b>Submodules</b></a>
 ----------
 
 <a href="git-">git submodule add &lt;remote_repository&gt; &lt;path/to/submodule&gt;</a>
@@ -578,7 +578,7 @@ Updating submodules
   main repository, it is lost and doing git submodule
   update will revert to the previous version.
 
-Patches
+<a name="Patches"><b>Patches</b></a>
 -------
 
 <a href="git-">git format-patch HEAD^</a>
@@ -601,7 +601,7 @@ Patches
     patch -p0 &lt; patchfile
   Useful for sharing changes without generating a git commit.
 
-Tags
+<a name="Tags"><b>Tags</b></a>
 ----
 
 <a href="git-">git tag -l</a>
@@ -613,7 +613,7 @@ Tags
   a branch. Any changes you now make can be committed to that
   branch and later merged.
 
-Archive
+<a name="Archive"><b>Archive</b></a>
 -------
 
 <a href="git-">git archive master | tar -x -C /somewhere/else</a>
@@ -625,13 +625,13 @@ Archive
 <a href="git-">git archive --format zip --output /full/path master</a>
   Will export as zip
 
-Git Instaweb
+<a name="Instaweb"><b>Git Instaweb</b></a>
 ------------
 
 <a href="git-">git instaweb --httpd=webrick [--start | --stop | --restart]</a>
 
 
-Environment Variables
+<a name="Env vars."><b>Environment Variables</b></a>
 ---------------------
 
 GIT_AUTHOR_NAME, GIT_COMMITTER_NAME
@@ -649,7 +649,7 @@ GIT_WORKING_TREE
   Location of the Working Directory - use with GIT_DIR to specifiy the working directory root
   or to work without being in the working directory at all.
 
-Changing history
+<a name="History change"><b>Changing history</b></a>
 ----------------
 
 Change author for all commits with given name

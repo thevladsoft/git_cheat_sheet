@@ -118,7 +118,7 @@ f.setPixelSize(12)
 f.setBold(True)
 taby.tabBar().setFont(f)
 
-texty.setText(texto)
+texty.setHtml(texto)
 texty.setOpenLinks(False)
 
 

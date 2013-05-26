@@ -38,8 +38,36 @@ class FingerTabBarWidget(QtGui.QTabBar):
         return self.tabSize
 #----------/
 
+#-----Funciones
+def man_charge(url):
+   #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[1])))
+   #ejecuto el comando
+   proc_out=subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
+   #me aseguro de que no de error
+   if proc_out[1]=="":
+      #cambio de tab de una vez, ahrro algo de tiempo
+      taby.setCurrentIndex(taby.indexOf(texty_2))
+      #cargo la página
+      texty_2.setHtml(proc_out[0])
+      #Si no es repetida, la agrego a la lista
+      if manlist[-1]!=url.toString():
+	manlist.append(url.toString())
+	#si pongo un boton para retroceder, aquí es donde debería activarlo, porque es cuando
+	#tendré un historial al cual retroceder
+   #chequeo el largo de la lista, y si es muy larga, boto los valores viejos
+      if len(manlist)>20:
+	del manlist[0]
+	
+#idea funcion para retroceder:
+#cuando quiera retroceder hago 'del manlist[-1]' para borrar el ultimo y
+#cargo el nuevo ultimo usando manlist[-1] otra vez. Todo esto solamente si solamente si 'len(manlist)>1'
+#y si 'len(manlist)==1' desactivo el boton para retroceder
+#Sería un fastidio poner una funcion para avanzar así que no lo haré.
+#----------/
+
 #------Declaracion de variable
 app = QtGui.QApplication(sys.argv) 
+manlist = []
 #-----|-Widgets
 widget_taby1 = QWidget()
 ventana= QWidget()
@@ -92,6 +120,8 @@ f = taby.font()
 #web.show()
 
 #boton.show()
+
+
 #-----Configuracion inicial de widgets
 
 #texty.setText("<a href=\"http://\">Setup<\a> -----\ngit clone &lt;repo&gt;\n  clone the repository specified by &lt;repo&gt;; this is similar to \"checkout\" in\n  some other version control systems such as Subversion and CVS")
@@ -110,7 +140,7 @@ ventana.resize(650,630)
 
 #-----|-Textos
 weby.setHtml("<center><p style=\"font-size:300%;color:blue\"><b>Git's How Tos</b></p></center>")
-
+manlist = ["git"]
 #Para quitar el marco alrededor de tabby y por tanto de los widgets que contiene.
 taby.setDocumentMode(True)
 
@@ -162,6 +192,7 @@ layi_taby1.setSpacing(0)
 #-----Iniciar Widgets
 #-----|-Primeras cargas
 weby.load(howto)
+texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , manlist[0]],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[0])
 #-----|-Crear tabs de los tabbars y tabwidgets
 taby.addTab(widget_taby1,"uno")
 taby.addTab(texty_2,"man")
@@ -319,7 +350,8 @@ print tabu.backgroundRole()
 weby.loadStarted.connect(lambda : taby.setTabText(taby.indexOf(weby),"howtos(Loading...)"))
 weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
 #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
-QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])))
+#QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])))
+QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),man_charge)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
 boton.clicked.connect(texty_2.backward)
 boton2.clicked.connect(lambda:weby.load(howto))
@@ -327,6 +359,15 @@ boton2.clicked.connect(lambda:weby.load(howto))
 tabu.currentChanged.connect(lambda i: texty.scrollToAnchor(anclas[i]))
 #def anchorClicked(uri):
 #  print uri
+boton3.clicked.connect(lambda : texty_2.scrollToAnchor(" "))
+
+#def roor():
+  #print texty_2.source().toString()
+  #for x in manlist:
+     #print x
+  ##print manlist[0]
+  ##print manlist[len(manlist)-1]
+#QObject.connect(texty_2,SIGNAL("sourceChanged(QUrl)"),roor)
 #----------/
 #-----Ultimos pasos
 ventana.show()

@@ -234,26 +234,28 @@ ventana.show()
 
 #setLayout(vgrid)
 
-def printuri(url):
-  #QString uri
-  #uri = "kioclient exec man:"+url.toString()
-  if texty.openLinks()==False:
-    print "kioclient exec man:"+url.toString()
-  #print uri
-  #subprocess.call("kioclient exec man:"+url.toString())
-    #subprocess.call(["kioclient", "exec", "man:"+url.toString()])
-    #texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
-    texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])
-    #texty.setOpenLinks(True)
+#def printuri(url):
+  ##QString uri
+  ##uri = "kioclient exec man:"+url.toString()
+  #if texty.openLinks()==False:
+    #print "kioclient exec man:"+url.toString()
+  ##print uri
+  ##subprocess.call("kioclient exec man:"+url.toString())
+    ##subprocess.call(["kioclient", "exec", "man:"+url.toString()])
+    ##texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
+    #texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])
+    ##texty.setOpenLinks(True)
     
-def anchory(i):
-   texty.scrollToAnchor(anclas[i])
+#def anchory(i):
+   #texty.scrollToAnchor(anclas[i])
 
-QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
+#QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
+QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])))
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
 boton.clicked.connect(texty_2.backward)
 boton2.clicked.connect(lambda:weby.load(howto))
-tabu.currentChanged.connect(anchory)
+#tabu.currentChanged.connect(anchory)
+tabu.currentChanged.connect(lambda i: texty.scrollToAnchor(anclas[i]))
 #def anchorClicked(uri):
 #  print uri
 

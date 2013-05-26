@@ -86,6 +86,89 @@ for x in anclas:
     tabu.addTab(x)
 #tabu.addTab("a")
 #tabu.addTab("b")
+#tabu.tabRect(1).setHeight(100)
+#tabu.repaint()
+#widget_taby1.setStyleSheet("QTabBar{ color: yellow;font: bold 14px;}")
+#widget_taby1.setStyleSheet("QTabBar::tab {border: 2px solid #C0C0C0;border-bottom-color: #C0C0C0; border-top-left-radius: 4px;border-top-right-radius: 8px;}")
+#widget_taby1.setStyleSheet("QTabBar {border-top-left-radius: 4px}")
+#widget_taby1.setStyleSheet("QTabBar::tab { border: 3px solid ;border-top-color: #C0C0C0;border-left-color: #C0C0C0;border-right-color: #DEDEDE;border-bottom-color: #DEDEDE;background: darkgray; color: white; padding: 5px;border-top-left-radius: 15px;border-bottom-right-radius: 10px }QTabBar::tab:selected { background: gray; } ")
+#taby.setObjectName("taby")
+p=app.palette()
+print p.color(QPalette.Window).name()
+#app.setStyleSheet("QTabBar::tab { border: 3px solid ;border-bottom-color: "+p.color(QPalette.Window).name() +";"##C2C7CB;"
+                           #"border-right-color: "+p.color(QPalette.Window).name() +";"#C0C0C0;"
+                           #"border-left-color: "+p.color(QPalette.Window).name() +";"#DEDEDE;"
+                           #"border-top-color: "+p.color(QPalette.Window).name() +";"#DEDEDE;"
+                           #"background: "+p.color(QPalette.Window).name() +";"
+                           #"color: "+p.color(QPalette.Window).name() +";"#white;"
+                           #" padding: 5px;"
+                           #"border-top-left-radius: 15px;"
+                           #"border-bottom-right-radius: 10px }QTabBar::tab:selected { background: gray; } ")
+#taby.setStyleSheet("QTabBar::tab { border: 2px solid ;"
+                           
+                           #"border-bottom-color: "+p.color(QPalette.Mid).name() +";"##C2C7CB;"
+                           ##"border-bottom-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           ##"stop: 0 "+p.color(QPalette.Mid).name()+","
+                           ##"stop: 1.0  "+p.color(QPalette.Button).name()+");"
+                           
+                           #"border-right-color: "+p.color(QPalette.Mid).name() +";"#C0C0C0;"
+                           #"border-left-color: "+p.color(QPalette.Button).name() +";"#DEDEDE;"
+                           
+                           #"border-top-color: "+p.color(QPalette.Button).name() +";"#DEDEDE;"
+                           ##"border-top-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           ##"stop: 0 "+p.color(QPalette.Mid).name()+","
+                           ##"stop: 1.0  "+p.color(QPalette.Button).name()+");"
+                           
+                           #"background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           #"stop: 0 "+p.color(QPalette.Mid).name()+","#ffffff,"
+                           #"stop: 1.0  "+p.color(QPalette.Button).name()+");" #lightgray);"
+                                 
+                           #"color: white;"
+                           ##"font: bold;"
+                           #" padding: 5px;"
+                           
+                           ##"border-top-left-radius: 15px;"
+                           #"border-top-right-radius: 15px;"
+                           ##"border-bottom-right-radius: 10px }QTabBar::tab:selected { background: gray; } ")
+                           #"border-bottom-left-radius: 10px }"
+                           ##"QTabBar::tab:selected { background: gray; } "
+                           #"QTabBar::tab:selected { background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           #"stop: 0 "+p.color(QPalette.Dark).name()+","
+                           #"stop: 1.0  "+p.color(QPalette.Mid).name()+");}"
+                           
+                           #"font: bold;"
+                           #)
+taby.setStyleSheet("padding: 6px")
+                           
+widget_taby1.setStyleSheet(#"QTabBar::tab {font: normal;}"
+                           "QTabBar::tab { border: 3px solid ;"
+                           "border-bottom-color: #C0C0C0;"
+                           "border-right-color: #C0C0C0;"
+                           "border-left-color: #DEDEDE;"
+                           "border-top-color: #DEDEDE;"
+                           #"background: darkgray;"
+                           "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           "stop: 0 "+p.color(QPalette.Mid).name()+","#ffffff,"
+                           "stop: 1.0  "+p.color(QPalette.Button).name()+");" #lightgray);"
+                           "color: white;"
+                           "padding: 5px;"
+                           "border-top-left-radius: 15px;"
+                           "border-bottom-right-radius: 10px ;"
+                           #"border-top-left-radius: 0px;"
+                           #"border-bottom-right-radius: 0px "
+                           "}"
+                           #"QTabBar::tab:selected { background: gray; } ")
+                           "QTabBar::tab:selected {  background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           "stop: 0 "+p.color(QPalette.Dark).name()+","
+                           "stop: 1.0  "+p.color(QPalette.Mid).name()+");}"
+                           )
+                           
+#taby.setBackgroundRole(QPalette.Base)
+#taby.setAutoFillBackground(True)
+#print widget_taby1.styleSheet()
+#p=taby.palette()
+#p.setColor(QPalette.Button, Qt.red)
+#taby.setPalette(p)
 
 
 #tabu.setTabPosition(QTabWidget.West)

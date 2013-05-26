@@ -14,7 +14,7 @@ from PyQt4.QtWebKit import QWebView
 app = QtGui.QApplication(sys.argv) 
 texty = QtGui.QTextBrowser()
 texty_2 = QtGui.QTextBrowser()
-vgrid = QtGui.QGridLayout()
+#vgrid = QtGui.QGridLayout()
 taby = QTabWidget()
 tabu = QTabBar()
 #taby.setTabPosition(QTabWidget.West)
@@ -46,8 +46,8 @@ texty.setOpenLinks(False)
 
 weby=QWebView()
 
-vgrid= QVBoxLayout()
-hgrid= QHBoxLayout()
+#vgrid= QVBoxLayout()
+#hgrid= QHBoxLayout()
 grid=QGridLayout()
 
 #hgrid.addWidget(boton)

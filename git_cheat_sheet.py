@@ -45,7 +45,7 @@ tabu = FingerTabBarWidget()
 anclas = ["Setup","Config.","Info","Add/Del","Ignoring","Staging","Unstage","Commit"
           ,"Branch.","Merging","Cherry-Pick","Squash.","Conflicts","Sharing","Reverting"
           ,"Fix","Plumbing","Stashing","Remotes","Submodules","Patches","Tags","Archive"
-          ,"Instaweb","Env vars.","History change"]
+          ,"Instaweb","Env vars.","Hist. change"]
 
 #texty = QtGui.QTextEdit()
 #const QUrl uri
@@ -74,6 +74,7 @@ weby=QWebView()
 #vgrid= QVBoxLayout()
 #hgrid= QHBoxLayout()
 grid=QGridLayout()
+grid.setContentsMargins(0,10,0,5)
 
 #hgrid.addWidget(boton)
 #hgrid.addWidget(boton2)
@@ -165,7 +166,8 @@ print p.color(QPalette.Window).name()
                            #"font: bold;"
                            #)
 #taby.setStyleSheet("padding: 6px")
-                           
+layi_taby1.setContentsMargins(0,0,0,0)     
+layi_taby1.setSpacing(0)
 widget_taby1.setStyleSheet(#"QTabBar::tab {font: normal;}"
                            "QTabBar::tab { border: 3px solid ;"
                            "border-bottom-color: #C0C0C0;"
@@ -173,9 +175,9 @@ widget_taby1.setStyleSheet(#"QTabBar::tab {font: normal;}"
                            "border-left-color: #DEDEDE;"
                            "border-top-color: #DEDEDE;"
                            #"background: darkgray;"
-                           "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,"
                            "stop: 0 "+p.color(QPalette.Mid).name()+","#ffffff,"
-                           "stop: 1.0  "+p.color(QPalette.Button).name()+");" #lightgray);"
+                           "stop: 1.0  "+p.color(QPalette.Light).name()+");" #lightgray);"
                            "color: black;"
                            "padding: 5px;"
                            "border-top-left-radius: 15px;"
@@ -186,7 +188,7 @@ widget_taby1.setStyleSheet(#"QTabBar::tab {font: normal;}"
                            
                            #"QTabBar::tab:selected { background: gray; } ")
                            "QTabBar::tab:selected {"  
-                           "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,"
+                           "background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,"
                            "stop: 0 "+p.color(QPalette.Dark).name()+","
                            "stop: 1.0  "+p.color(QPalette.Mid).name()+");}"
                            )
@@ -207,15 +209,15 @@ tabu.setShape(6)
 
 #grid.addWidget(taby,0,0,1,3)
 
-grid.addWidget(boton,0,1)
-grid.addWidget(boton2,0,2)
-grid.addWidget(boton3,0,3)
+grid.addWidget(boton,0,0)
+grid.addWidget(boton2,0,1)
+grid.addWidget(boton3,0,2)
 
 #vgrid.addWidget(hgrid.widget())
 #vgrid.addWidget(texty)
 
 #grid.addWidget(texty,2,0,1,3)
-grid.addWidget(taby,1,1,1,3)
+grid.addWidget(taby,1,0,1,3)
 
 #grid.addWidget(tabu,1,0,1,1)
 layi_taby1.addWidget(tabu)
@@ -225,6 +227,7 @@ ventana= QWidget()
 #ventana.setLayout(vgrid)
 ventana.setLayout(grid)
 ventana.setMinimumSize(150,300)
+ventana.resize(600,630)
 #ventana.setMaximumSize(800,800)
 ventana.show()
 

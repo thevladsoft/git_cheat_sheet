@@ -20,8 +20,7 @@
 <p></p>
 
 <a href="git-clone">git clone &lt;repo&gt;</a>
-  Clone the repository specified by &lt;repo&gt;; this is similar to &quot;checkout&quot; in
-  some other version control systems such as Subversion and CVS
+  Clone the repository specified by &lt;repo&gt;; this is similar to &quot;checkout&quot; in some other version control systems such as Subversion and CVS
 
 Add colors to your ~/.gitconfig file:
 
@@ -90,14 +89,10 @@ Show files ignored by git:
   sets your name and email for commit messages
 
 <a href="git-config">git config branch.autosetupmerge true</a>
-  tells git-branch and git-checkout to setup new branches so that git-pull(1)
-  will appropriately merge from that remote branch.  Recommended.  Without this,
-  you will have to add --track to your branch command or manually merge remote
-  tracking branches with &quot;fetch&quot; and then &quot;merge&quot;.
+  tells git-branch and git-checkout to setup new branches so that git-pull(1) will appropriately merge from that remote branch.  Recommended.  Without this, you will have to add --track to your branch command or manually merge remote  tracking branches with &quot;fetch&quot; and then &quot;merge&quot;.
 
 <a href="git-config">git config core.autocrlf true</a>
-  This setting tells git to convert the newlines to the system's standard
-  when checking out files, and to LF newlines when committing in
+  This setting tells git to convert the newlines to the system's standard  when checking out files, and to LF newlines when committing in
 
 <a href="git-config">git config --list</a>
   To view all options
@@ -105,8 +100,7 @@ Show files ignored by git:
 <a href="git-config">git config apply.whitespace nowarn</a>
   To ignore whitespace
 
-You can add &quot;--global&quot; after &quot;git config&quot; to any of these commands to make it
-apply to all git repos (writes to ~/.gitconfig).
+You can add &quot;--global&quot; after &quot;git config&quot; to any of these commands to make it apply to all git repos (writes to ~/.gitconfig).
 
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
@@ -115,13 +109,10 @@ apply to all git repos (writes to ~/.gitconfig).
 <p></p>
 
 <a href="git-reflog">git reflog</a>
-  Use this to recover from *major* mess ups! It's basically a log of the
-  last few actions and you might have luck and find old commits that
-  have been lost by doing a complex merge.
+  Use this to recover from *major* mess ups! It's basically a log of the  last few actions and you might have luck and find old commits that  have been lost by doing a complex merge.
 
 <a href="git-diff">git diff</a>
-  show a diff of the changes made since your last commit
-  to diff one file: 
+  show a diff of the changes made since your last commit  to diff one file: 
 <!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
 &quot;git diff -- &lt;filename&gt;&quot;
 </code></pre>
@@ -150,14 +141,19 @@ apply to all git repos (writes to ~/.gitconfig).
 
 <a href="git-log">git log &lt;ref&gt;..&lt;ref&gt;</a>
   show commits between the specified range. Useful for seeing changes from remotes:
+<!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
   git log HEAD..origin/master # after git remote update
+</code></pre>
+<p></p>
 
 <a href="git-show">git show &lt;rev&gt;</a>
-  show the changeset (diff) of a commit specified by &lt;rev&gt;, which can be any
-  SHA1 commit ID, branch name, or tag (shows the last commit (HEAD) by default)
+  show the changeset (diff) of a commit specified by &lt;rev&gt;, which can be any  SHA1 commit ID, branch name, or tag (shows the last commit (HEAD) by default)
 
   also to show the contents of a file at a specific revision, use 
+<!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
      git show &lt;rev&gt;:&lt;filename&gt;
+</code></pre>
+<p></p>
   this is similar to cat-file but much simpler syntax.
 
 <a href="git-show">git show --name-only &lt;rev&gt;</a>
@@ -167,8 +163,7 @@ apply to all git repos (writes to ~/.gitconfig).
   show who authored each line in &lt;file&gt;
 
 <a href="git-blame">git blame &lt;file&gt; &lt;rev&gt;</a>
-  show who authored each line in &lt;file&gt; as of &lt;rev&gt; (allows blame to go back in
-  time)
+  show who authored each line in &lt;file&gt; as of &lt;rev&gt; (allows blame to go back in time)
 
 <a href="git-blame">git gui blame</a>
   really nice GUI interface to git blame
@@ -180,8 +175,7 @@ apply to all git repos (writes to ~/.gitconfig).
     git whatchanged &lt;branch&gt; &lt;file&gt;  | grep commit | \
          colrm 1 7 | xargs -I % git show % &lt;file&gt;
 </code></pre>
-  this could be combined with git remote show &lt;remote&gt; to find all changes on
-  all branches to a particular file.
+  this could be combined with git remote show &lt;remote&gt; to find all changes on all branches to a particular file.
 
 <a href="git-diff">git diff &lt;commit&gt; head path/to/fubar</a>
   show the diff between a file on the current branch and potentially another branch
@@ -193,8 +187,7 @@ apply to all git repos (writes to ~/.gitconfig).
   list all files in the index and under version control.
 
 <a href="git-ls-remote">git ls-remote &lt;remote&gt; [HEAD]</a>
-  show the current version on the remote repo. This can be used to check whether
-  a local is required by comparing the local head revision.
+  show the current version on the remote repo. This can be used to check whether a local is required by comparing the local head revision.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Add/Del"><b>Adding / Deleting</b></a>
@@ -241,18 +234,15 @@ Either way you need to add patterns to exclude to these files.
 
 <a href="git-add">git add &lt;file1&gt; &lt;file2&gt; ...</a>
 <a href="git-stage">git stage &lt;file1&gt; &lt;file2&gt; ...</a>
-  add changes in &lt;file1&gt;, &lt;file2&gt; ... to the staging area (to be included in
-  the next commit
+  add changes in &lt;file1&gt;, &lt;file2&gt; ... to the staging area (to be included in the next commit
 
 <a href="git-add">git add -p</a>
 <a href="git-stage">git stage --patch</a>
-  interactively walk through the current changes (hunks) in the working
-  tree, and decide which changes to add to the staging area.
+  interactively walk through the current changes (hunks) in the working tree, and decide which changes to add to the staging area.
 
 <a href="git-add">git add -i</a>
 <a href="git-stage">git stage --interactive</a>
-  interactively add files/changes to the staging area. For a simpler
-  mode (no menu), try `git add --patch` (above)
+  interactively add files/changes to the staging area. For a simpler mode (no menu), try `git add --patch` (above)
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Unstage"><b>Unstaging</b></a>
@@ -269,16 +259,13 @@ Either way you need to add patterns to exclude to these files.
 <p></p>
 
 <a href="git-commit">git commit &lt;file1&gt; &lt;file2&gt; ... [-m &lt;msg&gt;]</a>
-  commit &lt;file1&gt;, &lt;file2&gt;, etc..., optionally using commit message &lt;msg&gt;,
-  otherwise opening your editor to let you type a commit message
+  commit &lt;file1&gt;, &lt;file2&gt;, etc..., optionally using commit message &lt;msg&gt;, otherwise opening your editor to let you type a commit message
 
 <a href="git-commit">git commit -a</a>
-  commit all files changed since your last commit
-  (does not include new (untracked) files)
+  commit all files changed since your last commit (does not include new (untracked) files)
 
 <a href="git-commit">git commit -v</a>
-  commit verbosely, i.e. includes the diff of the contents being committed in
-  the commit message screen
+  commit verbosely, i.e. includes the diff of the contents being committed in the commit message screen
 
 <a href="git-commit">git commit --amend</a>
   edit the commit message of the most recent commit
@@ -302,16 +289,13 @@ Either way you need to add patterns to exclude to these files.
   list all local and remote branches
 
 <a href="git-branch">git branch &lt;branch&gt;</a>
-  create a new branch named &lt;branch&gt;, referencing the same point in history as
-  the current branch
+  create a new branch named &lt;branch&gt;, referencing the same point in history as the current branch
 
 <a href="git-branch">git branch &lt;branch&gt; &lt;start-point&gt;</a>
-  create a new branch named &lt;branch&gt;, referencing &lt;start-point&gt;, which may be
-  specified any way you like, including using a branch name or a tag name
+  create a new branch named &lt;branch&gt;, referencing &lt;start-point&gt;, which may be specified any way you like, including using a branch name or a tag name
 
 <a href="git-push">git push &lt;repo&gt; &lt;start-point&gt;:refs/heads/&lt;branch&gt;</a>
-  create a new remote branch named &lt;branch&gt;, referencing &lt;start-point&gt; on the
-  remote. Repo is the name of the remote.
+  create a new remote branch named &lt;branch&gt;, referencing &lt;start-point&gt; on the remote. Repo is the name of the remote.
 <!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
   Example: git push origin origin:refs/heads/branch-1
   Example: git push origin origin/branch-1:refs/heads/branch-2
@@ -334,9 +318,7 @@ Either way you need to add patterns to exclude to these files.
 <p></p>
 
 <a href="git-branch">git branch -d &lt;branch&gt;</a>
-  delete the branch &lt;branch&gt;; if the branch you are deleting points to a
-  commit which is not reachable from the current branch, this command
-  will fail with a warning.
+  delete the branch &lt;branch&gt;; if the branch you are deleting points to a commit which is not reachable from the current branch, this command will fail with a warning.
 
 <a href="git-branch">git branch -r -d &lt;remote-branch&gt;</a>
   delete a remote-tracking branch.
@@ -346,14 +328,10 @@ Either way you need to add patterns to exclude to these files.
 <p></p>
 
 <a href="git-branch">git branch -D &lt;branch&gt;</a>
-  even if the branch points to a commit not reachable from the current branch,
-  you may know that that commit is still reachable from some other branch or
-  tag. In that case it is safe to use this command to force git to delete the
-  branch.
+  even if the branch points to a commit not reachable from the current branch, you may know that that commit is still reachable from some other branch or tag. In that case it is safe to use this command to force git to delete the branch.
 
 <a href="git-checkout">git checkout &lt;branch&gt;</a>
-  make the current branch &lt;branch&gt;, updating the working directory to reflect
-  the version referenced by &lt;branch&gt;
+  make the current branch &lt;branch&gt;, updating the working directory to reflect the version referenced by &lt;branch&gt;
 
 <a href="git-checkout">git checkout -b &lt;new&gt; &lt;start-point&gt;</a>
   create a new branch &lt;new&gt; referencing &lt;start-point&gt;, and check it out.
@@ -366,8 +344,7 @@ Either way you need to add patterns to exclude to these files.
 <p></p>
 
 <a href="git-checkout">git checkout &lt;branch&gt; -- &lt;path to new file&gt;</a>
-  Checkout a file from another branch and add it to this branch. File
-  will still need to be added to the git branch, but it's present.
+  Checkout a file from another branch and add it to this branch. File will still need to be added to the git branch, but it's present.
 <!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
   Eg. git checkout remote_at_origin__tick702_antifraud_blocking -- \
                    ..../...nt_elements_for_iframe_blocked_page.rb
@@ -375,13 +352,13 @@ Either way you need to add patterns to exclude to these files.
 <p></p>
 
 <a href="git-show">git show &lt;branch&gt; -- &lt;path to file that does not exist&gt;</a>
+<!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
   Eg. git show remote_tick702 -- path/to/fubar.txt
-  show the contents of a file that was created on another branch and that
-  does not exist on the current branch.
+</code></pre>
+  show the contents of a file that was created on another branch and that does not exist on the current branch.
 
 <a href="git-show">git show &lt;rev&gt;:&lt;repo path to file&gt;</a>
-  Show the contents of a file at the specific revision. Note: path has to be
-  absolute within the repo.
+  Show the contents of a file at the specific revision. Note: path has to be absolute within the repo.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Merging"><b>Merging</b></a>
@@ -389,17 +366,13 @@ Either way you need to add patterns to exclude to these files.
 <p></p>
 
 <a href="git-merge">git merge &lt;branch&gt;</a>
-  merge branch &lt;branch&gt; into the current branch; this command is idempotent
-  and can be run as many times as needed to keep the current branch
-  up-to-date with changes in &lt;branch&gt;
+  merge branch &lt;branch&gt; into the current branch; this command is idempotent and can be run as many times as needed to keep the current branch up-to-date with changes in &lt;branch&gt;
 
 <a href="git-merge">git merge &lt;branch&gt; --no-commit</a>
-  merge branch &lt;branch&gt; into the current branch, but do not autocommit the
-  result; allows you to make further tweaks
+  merge branch &lt;branch&gt; into the current branch, but do not autocommit the result; allows you to make further tweaks
 
 <a href="git-merge">git merge &lt;branch&gt; -s ours</a>
-  merge branch &lt;branch&gt; into the current branch, but drops any changes in
-  &lt;branch&gt;, using the current tree as the new tree
+  merge branch &lt;branch&gt; into the current branch, but drops any changes in &lt;branch&gt;, using the current tree as the new tree
 
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
@@ -409,8 +382,10 @@ Either way you need to add patterns to exclude to these files.
 
 <a href="git-cherry-pick">git cherry-pick [--edit] [-n] [-m parent-number] [-s] [-x] &lt;commit&gt;</a>
   selectively merge a single commit from another local branch
+<!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
   Example: git cherry-pick 7300a6130d9447e18a931e898b64eefedea19544
-
+</code></pre>
+<p></p>
 <a href="git-hash-object">git hash-object &lt;file-path&gt;</a>
   get the blob of some file whether it is in a repository or not
 
@@ -439,13 +414,11 @@ WARNING: &quot;git rebase&quot; changes history. Be careful. Google it.
 
 
 
-Both <a href="git-merge">git merge --squash</a> and <a href="git-rebase">git rebase --interactive</a> can produce a "squashed" commit.
-But they serve different purposes.
+Both <a href="git-merge">git merge --squash</a> and <a href="git-rebase">git rebase --interactive</a> can produce a "squashed" commit. But they serve different purposes.
 
     <a href="git-merge">git merge --squash</a>
 
-will produce a squashed commit on the destination branch, without marking any merge relationship.
-This is useful if you want to throw away the source branch completely, going from:
+will produce a squashed commit on the destination branch, without marking any merge relationship. This is useful if you want to throw away the source branch completely, going from:
 
 <!--Figuras--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #E9E8CB; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #E9E8CB; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
       X                   stable
@@ -490,12 +463,9 @@ So the differences are:
 <p></p>
 
 <a href="git-mergetool">git mergetool</a>
-  work through conflicted files by opening them in your mergetool (opendiff,
-  kdiff3, etc.) and choosing left/right chunks. The merged result is staged for
-  commit.
+  work through conflicted files by opening them in your mergetool (opendiff, kdiff3, etc.) and choosing left/right chunks. The merged result is staged for commit.
 
-For binary files or if mergetool won't do, resolve the conflict(s) manually
-and then do:
+For binary files or if mergetool won't do, resolve the conflict(s) manually and then do:
 <!--Codigo de ejemplo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #eeeeee; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #eeeeee; border-width: 0px; border-style: none; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
   git add &lt;file1&gt; [&lt;file2&gt; ...]
 </code></pre>
@@ -510,29 +480,19 @@ Once all conflicts are resolved and staged, commit the pending merge with:
 <p></p>
 
 <a href="git-fetch">git fetch &lt;remote&gt;</a>
-  update the remote-tracking branches for &lt;remote&gt; (defaults to &quot;origin&quot;).
-  Does not initiate a merge into the current branch (see &quot;git pull&quot; below).
+  update the remote-tracking branches for &lt;remote&gt; (defaults to &quot;origin&quot;). Does not initiate a merge into the current branch (see &quot;git pull&quot; below).
 
 <a href="git-pull">git pull</a>
-  fetch changes from the server, and merge them into the current branch.
-  Note: .git/config must have a [branch &quot;some_name&quot;] section for the current
-  branch, to know which remote-tracking branch to merge into the current
-  branch.  Git 1.5.3 and above adds this automatically.
+  fetch changes from the server, and merge them into the current branch. Note: .git/config must have a [branch &quot;some_name&quot;] section for the current branch, to know which remote-tracking branch to merge into the current branch.  Git 1.5.3 and above adds this automatically.
 
 <a href="git-push">git push</a>
-  update the server with your commits across all branches that are *COMMON*
-  between your local copy and the server.  Local branches that were never
-  pushed to the server in the first place are not shared.
+  update the server with your commits across all branches that are *COMMON* between your local copy and the server.  Local branches that were never pushed to the server in the first place are not shared.
 
 <a href="git-push">git push origin &lt;branch&gt;</a>
-  update the server with your commits made to &lt;branch&gt; since your last push.
-  This is always *required* for new branches that you wish to share. After
-  the first explicit push, &quot;git push&quot; by itself is sufficient.
+  update the server with your commits made to &lt;branch&gt; since your last push. This is always *required* for new branches that you wish to share. After the first explicit push, &quot;git push&quot; by itself is sufficient.
 
 <a href="git-push">git push origin &lt;branch&gt;:refs/heads/&lt;branch&gt;</a>
-  E.g. git push origin twitter-experiment:refs/heads/twitter-experiment
-  Which, in fact, is the same as git push origin &lt;branch&gt; but a little
-  more obvious what is happening.
+  E.g. git push origin twitter-experiment:refs/heads/twitter-experiment Which, in fact, is the same as git push origin &lt;branch&gt; but a little more obvious what is happening.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Reverting"><b>Reverting</b></a>
@@ -540,16 +500,13 @@ Once all conflicts are resolved and staged, commit the pending merge with:
 <p></p>
 
 <a href="git-revert">git revert &lt;rev&gt;</a>
-  reverse commit specified by &lt;rev&gt; and commit the result.  This does *not* do
-  the same thing as similarly named commands in other VCS's such as &quot;svn
-  revert&quot; or &quot;bzr revert&quot;, see below
+  reverse commit specified by &lt;rev&gt; and commit the result.  This does *not* do the same thing as similarly named commands in other VCS's such as &quot;svn revert&quot; or &quot;bzr revert&quot;, see below
 
 <a href="git-checkout">git checkout &lt;file&gt;</a>
   re-checkout &lt;file&gt;, overwriting any local changes
 
 <a href="git-checkout">git checkout .</a>
-  re-checkout all files, overwriting any local changes.  This is most similar
-  to &quot;svn revert&quot; if you're used to Subversion commands
+  re-checkout all files, overwriting any local changes.  This is most similar to &quot;svn revert&quot; if you're used to Subversion commands
 
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
@@ -558,23 +515,16 @@ Once all conflicts are resolved and staged, commit the pending merge with:
 <p></p>
 
 <a href="git-reset">git reset --hard</a>
-  abandon everything since your last commit; this command can be DANGEROUS.
-  If merging has resulted in conflicts and you'd like to just forget about
-  the merge, this command will do that.
+  abandon everything since your last commit; this command can be DANGEROUS. If merging has resulted in conflicts and you'd like to just forget about the merge, this command will do that.
 
 <a href="git-reset">git reset --hard ORIG_HEAD or git reset --hard origin/master </a>
-  undo your most recent *successful* merge *and* any changes that occurred
-  after.  Useful for forgetting about the merge you just did.  If there are
-  conflicts (the merge was not successful), use &quot;git reset --hard&quot; (above)
-  instead.
+  undo your most recent *successful* merge *and* any changes that occurred after. Useful for forgetting about the merge you just did.  If there are conflicts (the merge was not successful), use &quot;git reset --hard&quot; (above) instead.
 
 <a href="git-reset">git reset --soft HEAD^</a>
-  forgot something in your last commit? That's easy to fix. Undo your last
-  commit, but keep the changes in the staging area for editing.
+  forgot something in your last commit? That's easy to fix. Undo your last commit, but keep the changes in the staging area for editing.
 
 <a href="git-commit">git commit --amend</a>
-  redo previous commit, including changes you've staged in the meantime.
-  Also used to edit commit message of previous commit.
+  redo previous commit, including changes you've staged in the meantime. Also used to edit commit message of previous commit.
 
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
@@ -583,8 +533,7 @@ Once all conflicts are resolved and staged, commit the pending merge with:
 <p></p>
 
 <a href="test">test &lt;sha1-A&gt; = $(git merge-base &lt;sha1-A&gt; &lt;sha1-B&gt;)</a>
-  determine if merging sha1-B into sha1-A is achievable as a fast forward;
-  non-zero exit status is false.
+  determine if merging sha1-B into sha1-A is achievable as a fast forward; non-zero exit status is false.
 
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
@@ -594,16 +543,13 @@ Once all conflicts are resolved and staged, commit the pending merge with:
 
 <a href="git-stash">git stash</a>
 <a href="git-stash">git stash save &lt;optional-name&gt;</a>
-  save your local modifications to a new stash (so you can for example
-  &quot;git svn rebase&quot; or &quot;git pull&quot;)
+  save your local modifications to a new stash (so you can for example &quot;git svn rebase&quot; or &quot;git pull&quot;)
 
 <a href="git-stash">git stash apply</a>
-  restore the changes recorded in the stash on top of the current working tree
-  state
+  restore the changes recorded in the stash on top of the current working tree state
 
 <a href="git-stash">git stash pop</a>
-  restore the changes from the most recent stash, and remove it from the stack
-  of stashed changes
+  restore the changes from the most recent stash, and remove it from the stack of stashed changes
 
 <a href="git-stash">git stash list</a>
   list all current stashes
@@ -667,21 +613,14 @@ git push origin origin:refs/heads/new_feature_name
     git checkout -b myfeature origin/myfeature
     git checkout -b myfeature remotes/&lt;remote&gt;/&lt;branch&gt;
 </code></pre>
-  Track a remote branch as a local branch. It seems that
-  somtimes an extra 'remotes/' is required, to see the exact
-  branch name, 'git branch -a'.
+  Track a remote branch as a local branch. It seems that somtimes an extra 'remotes/' is required, to see the exact branch name, 'git branch -a'.
 
 <a href="git-pull">git pull &lt;remote&gt; &lt;branch&gt;</a>
 <a href="git-push">git push</a>
-  For branches that are remotely tracked (via git push) but
-  that complain about non-fast forward commits when doing a
-  git push. The pull synchronizes local and remote, and if
-  all goes well, the result is pushable.
+  For branches that are remotely tracked (via git push) but that complain about non-fast forward commits when doing a git push. The pull synchronizes local and remote, and if all goes well, the result is pushable.
 
 <a href="git-fetch">git fetch &lt;remote&gt;</a>
-  Retrieves all branches from the remote repository. After
-  this 'git branch --track ...' can be used to track a branch
-  from the new remote.
+  Retrieves all branches from the remote repository. After this 'git branch --track ...' can be used to track a branch from the new remote.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Submodules"><b>Submodules</b></a>
@@ -689,12 +628,10 @@ git push origin origin:refs/heads/new_feature_name
 <p></p>
 
 <a href="git-submodule">git submodule add &lt;remote_repository&gt; &lt;path/to/submodule&gt;</a>
-  add the given repository at the given path. The addition will be part of the
-  next commit.
+  add the given repository at the given path. The addition will be part of the next commit.
 
 <a href="git-submodule">git submodule update [--init]</a>
-  Update the registered submodules (clone missing submodules, and checkout
-  the commit specified by the super-repo). --init is needed the first time.
+  Update the registered submodules (clone missing submodules, and checkout the commit specified by the super-repo). --init is needed the first time.
 
 <a href="git-submodule">git submodule foreach &lt;command&gt;</a>
   Executes the given command within each checked out submodule.
@@ -718,9 +655,7 @@ Updating submodules
     3. check that the submodule has the correct version
         git submodule status
 </code></pre>
-  If the update in the submodule is not committed in the
-  main repository, it is lost and doing git submodule
-  update will revert to the previous version.
+  If the update in the submodule is not committed in the main repository, it is lost and doing git submodule update will revert to the previous version.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Patches"><b>Patches</b></a>
@@ -728,11 +663,8 @@ Updating submodules
 <p></p>
 
 <a href="git-format">git format-patch HEAD^</a>
-  Generate the last commit as a patch that can be applied on another
-  clone (or branch) using 'git am'. Format patch can also generate a
-  patch for all commits using 'git format-patch HEAD^ HEAD'
-  All page files will be enumerated with a prefix, e.g. 0001 is the
-  first patch.
+  Generate the last commit as a patch that can be applied on another clone (or branch) using 'git am'. Format patch can also generate a patch for all commits using 'git format-patch HEAD^ HEAD'
+  All page files will be enumerated with a prefix, e.g. 0001 is the first patch.
 
 <a href="git-format">git format-patch &lt;Revision&gt;^..&lt;Revision&gt;</a>
   Generate a patch for a single commit. E.g.
@@ -760,10 +692,7 @@ Updating submodules
   Will list all tags defined in the repository.
 
 <a href="git-checkout">git checkout &lt;tag_name&gt;</a>
-  Will checkout the code for a particular tag. After this you'll
-  probably want to do: 'git checkout -b &lt;some branch name&gt;' to define
-  a branch. Any changes you now make can be committed to that
-  branch and later merged.
+  Will checkout the code for a particular tag. After this you'll probably want to do: 'git checkout -b &lt;some branch name&gt;' to define a branch. Any changes you now make can be committed to that branch and later merged.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Archive"><b>Archive</b></a>
@@ -799,14 +728,14 @@ Show a git logical variable
 <!--lo que va en un archivo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #D2E9E9; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #D2E9E9; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
 GIT_AUTHOR_NAME, GIT_COMMITTER_NAME
 </code></pre>
-  Your full name to be recorded in any newly created commits.  Overrides
-  user.name in .git/config
+  Your full name to be recorded in any newly created commits.  
+  Overrides user.name in .git/config
 
 <!--lo que va en un archivo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #D2E9E9; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #D2E9E9; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
 GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL
 </code></pre>
-  Your email address to be recorded in any newly created commits.  Overrides
-  user.email in .git/config
+  Your email address to be recorded in any newly created commits.  
+  Overrides user.email in .git/config
 
 <!--lo que va en un archivo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #D2E9E9; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #D2E9E9; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
 GIT_DIR
@@ -816,8 +745,7 @@ GIT_DIR
 <!--lo que va en un archivo--><pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; background-color: #D2E9E9; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve"><code style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; background-color: #D2E9E9; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 0px; margin: 0px;">
 GIT_WORKING_TREE
 </code></pre>
-  Location of the Working Directory - use with GIT_DIR to specifiy the working directory root
-  or to work without being in the working directory at all.
+  Location of the Working Directory - use with GIT_DIR to specifiy the working directory root or to work without being in the working directory at all.
 
 <pre style="font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif; margin-bottom: 0px; color: white;font: bold 18px; background-color: #6B72FF; overflow: auto; width: auto; max-height: 600px; margin-left: 0px; margin-right: 0px; margin-top: 0px; border-width: 0px; border-style: solid; border-color: #000000; font-size: 100%; vertical-align: baseline; background-attachment: scroll; background-image: none; background-position: 0% 0%; background-repeat: repeat; background-clip: border-box; background-origin: padding-box; background-size: auto auto; padding: 5px;" xml:space="preserve">
 <a name="Hist. change"><b>Changing history</b></a>

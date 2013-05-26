@@ -106,7 +106,7 @@ f = taby.font()
 #hgrid.addWidget(boton2)
 #hgrid.addWidget(boton3)
 ventana.setMinimumSize(150,300)
-ventana.resize(600,630)
+ventana.resize(650,630)
 
 #-----|-Textos
 weby.setHtml("<center><p style=\"font-size:300%;color:blue\"><b>Git's How Tos</b></p></center>")

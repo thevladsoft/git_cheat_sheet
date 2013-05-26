@@ -71,18 +71,27 @@ weby.load(howto)
 weby.loadStarted.connect(lambda : taby.setTabText(taby.indexOf(weby),"howtos(Loading...)"))
 weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
 
+widget_taby1 = QWidget()
+layi_taby1 = QHBoxLayout()
+widget_taby1.setLayout(layi_taby1)
+
 #taby.addTab("uno")
 #taby.addTab("dos")
-taby.addTab(texty,"uno")
+#taby.addTab(texty,"uno")
+taby.addTab(widget_taby1,"uno")
 taby.addTab(texty_2,"man")
 taby.addTab(weby,"howtos(Loading...)")
 
+for x in anclas:
+    tabu.addTab(x)
+#tabu.addTab("a")
+#tabu.addTab("b")
 
 
-
-tabu.addTab("a")
-tabu.addTab("b")
 #tabu.setTabPosition(QTabWidget.West)
+print tabu.backgroundRole()
+tabu.setUsesScrollButtons(True)
+
 tabu.setShape(6)
 
 #grid.addWidget(taby,0,0,1,3)
@@ -97,11 +106,15 @@ grid.addWidget(boton3,0,3)
 #grid.addWidget(texty,2,0,1,3)
 grid.addWidget(taby,1,1,1,3)
 
-grid.addWidget(tabu,1,0,1,1)
+#grid.addWidget(tabu,1,0,1,1)
+layi_taby1.addWidget(tabu)
+layi_taby1.addWidget(texty)
 
 ventana= QWidget()
 #ventana.setLayout(vgrid)
 ventana.setLayout(grid)
+ventana.setMinimumSize(150,300)
+#ventana.setMaximumSize(800,800)
 ventana.show()
 
 #setLayout(vgrid)

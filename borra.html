@@ -1,0 +1,166 @@
+<!-- Creator     : groff version 1.20.1 -->
+<!-- CreationDate: Sun May 26 21:00:06 2013 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center; background: #6B72FF; color: white;font: bold 24px;}
+</style>
+<title>GIT&minus;CLEAN</title>
+
+</head>
+<body>
+
+<h1 align="center">GIT&minus;CLEAN</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#GIT">GIT</a><br>
+<a href="#NOTES">NOTES</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">git-clean
+&minus; Remove untracked files from the working tree</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>git
+clean</i> [&minus;d] [&minus;f] [&minus;n] [&minus;q]
+[&minus;x | &minus;X] [&minus;&minus;] &lt;path&gt;...</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Cleans the
+working tree by recursively removing files that are not
+under version control, starting from the current
+directory.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Normally, only
+files unknown to git are removed, but if the <i>&minus;x</i>
+option is specified, ignored files are also removed. This
+can, for example, be useful to remove all build
+products.</p>
+
+<p style="margin-left:11%; margin-top: 1em">If any optional
+&lt;path&gt;... arguments are given, only those paths are
+affected.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">&minus;d</p>
+
+<p style="margin-left:17%;">Remove untracked directories in
+addition to untracked files. If an untracked directory is
+managed by a different git repository, it is not removed by
+default. Use &minus;f option twice if you really want to
+remove such a directory.</p>
+
+<p style="margin-left:11%; margin-top: 1em">&minus;f,
+&minus;&minus;force</p>
+
+<p style="margin-left:17%;">If the git configuration
+variable clean.requireForce is not set to false, <i>git
+clean</i> will refuse to run unless given &minus;f or
+&minus;n.</p>
+
+<p style="margin-left:11%; margin-top: 1em">&minus;n,
+&minus;&minus;dry&minus;run</p>
+
+<p style="margin-left:17%;">Don&rsquo;t actually remove
+anything, just show what would be done.</p>
+
+<p style="margin-left:11%; margin-top: 1em">&minus;q,
+&minus;&minus;quiet</p>
+
+<p style="margin-left:17%;">Be quiet, only report errors,
+but not the files that are successfully removed.</p>
+
+<p style="margin-left:11%; margin-top: 1em">&minus;x</p>
+
+<p style="margin-left:17%;">Don&rsquo;t use the ignore
+rules. This allows removing all untracked files, including
+build products. This can be used (possibly in conjunction
+with <i>git reset</i>) to create a pristine working
+directory to test a clean build.</p>
+
+<p style="margin-left:11%; margin-top: 1em">&minus;X</p>
+
+<p style="margin-left:17%;">Remove only files ignored by
+git. This may be useful to rebuild everything from scratch,
+but keep manually created files.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Pavel Roskin
+&lt;<b><font color="#0000FF">proski@gnu.org</font></b>
+<small><font color="#000000">[1]</font></small>
+<font color="#000000">&gt;</font></p>
+
+<h2>GIT
+<a name="GIT"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><font color="#000000">Part
+of the <b>git</b>(1) suite</font></p>
+
+<h2>NOTES
+<a name="NOTES"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="12%"></td>
+<td width="3%">
+
+
+
+<p style="margin-top: 1em"><font color="#000000">1.</font></p> </td>
+<td width="2%"></td>
+<td width="21%">
+
+
+
+<p style="margin-top: 1em"><font color="#000000">proski@gnu.org</font></p> </td>
+<td width="62%">
+</td></tr>
+</table>
+
+
+<p style="margin-left:17%;"><font color="#000000">mailto:proski@gnu.org</font></p>
+<hr>
+</body>
+</html>

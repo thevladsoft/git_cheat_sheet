@@ -2,6 +2,7 @@
 #-----Importar delsistema
 import sys
 import subprocess
+import re
 #from time import sleep
 #----------/
 #-----Importar de PyQt4
@@ -48,7 +49,11 @@ def man_charge(url):
       #cambio de tab de una vez, ahrro algo de tiempo
       taby.setCurrentIndex(taby.indexOf(texty_2))
       #cargo la página
-      texty_2.setHtml(proc_out[0])
+      stringo=re.sub("h1      { text-align: center }","h1      { text-align: center; background: #6B72FF; color: white;font: bold 24px;}",proc_out[0])
+      stringo=re.sub("h1>","h1><p></p>",stringo)
+      #print stringo
+      #texty_2.setHtml(proc_out[0])
+      texty_2.setHtml(stringo)
       #Si no es repetida, la agrego a la lista
       if manlist[-1]!=url.toString():
 	manlist.append(url.toString())
@@ -63,11 +68,31 @@ def man_charge(url):
 #cargo el nuevo ultimo usando manlist[-1] otra vez. Todo esto solamente si solamente si 'len(manlist)>1'
 #y si 'len(manlist)==1' desactivo el boton para retroceder
 #Sería un fastidio poner una funcion para avanzar así que no lo haré.
+
+def ref_charge():
+    startre = re.compile("^git[^ ]*", re.IGNORECASE | re.MULTILINE);
+    s = subprocess.Popen(["apropos", "^git"],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
+    if s[1]=="":
+	#print "s"
+	#text_ref.setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title>"\
+	#"<link charset=\"utf-8\" href=\"/style.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />"\
+	#"</head>"+'\n'+"<body><div class=\"content\"><pre>"+'\n'+\
+	#startre.sub(lambda m:"<a href=\"%(s1)s\">%(s2)s </a>" % {'s1':m.group(0), 's2':m.group(0)} ,s)+\
+	#"</pre></div></body></html>")
+	text_ref.setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title><link charset=\"utf-8\" href=\"/style.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /></head>"+'\n'+\
+			 "<STYLE type=\"text/css\">BODY { background: white; color: black;font: 14px;font-family: Consolas;}A:link { font:bold;font-family: Consolas }P {background: #6B72FF; color: white;font: bold 24px;font-family: Consolas;}</STYLE>" 
+			 "<body><div class=\"content\">"+"<pre>"+'\n'+"<p ><center>GIT's Commands REFERENCE</center></p>"+\
+			 startre.sub(lambda m:"<br> <a href=\"%(s1)s\">%(s2)s</a>" % {'s1':m.group(0), 's2':m.group(0)} ,s[0])+\
+			 "</pre></div></body></html>")
+    else:
+	print s[1]
+
 #----------/
 
 #------Declaracion de variable
 app = QtGui.QApplication(sys.argv) 
 manlist = []
+
 #-----|-Widgets
 widget_taby1 = QWidget()
 ventana= QWidget()
@@ -86,6 +111,7 @@ boton3 =  QPushButton("Drink me")
 #-----|-|-texto
 texty = QtGui.QTextBrowser()
 texty_2 = QtGui.QTextBrowser()
+text_ref = QtGui.QTextBrowser()
 weby=QWebView()
 #-----|-|-----/
 #-----|-----/
@@ -151,6 +177,7 @@ taby.tabBar().setFont(f)
 texty.setHtml(texto)
 texty.setOpenLinks(False)
 
+text_ref.setOpenLinks(False)
 
 
 #-----|-Tabs
@@ -192,9 +219,15 @@ layi_taby1.setSpacing(0)
 #-----Iniciar Widgets
 #-----|-Primeras cargas
 weby.load(howto)
-texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , manlist[0]],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[0])
+
+man_charge(QUrl(manlist[0]))
+#texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , manlist[0]],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[0])
+
+ref_charge()
+
 #-----|-Crear tabs de los tabbars y tabwidgets
-taby.addTab(widget_taby1,"uno")
+taby.addTab(widget_taby1,"Cheats")
+taby.addTab(text_ref,"Comandos")
 taby.addTab(texty_2,"man")
 taby.addTab(weby,"howtos(Loading...)")
 for x in anclas:
@@ -352,6 +385,7 @@ weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
 #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
 #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])))
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),man_charge)
+QObject.connect(text_ref,SIGNAL("anchorClicked(QUrl)"),man_charge)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
 boton.clicked.connect(texty_2.backward)
 boton2.clicked.connect(lambda:weby.load(howto))

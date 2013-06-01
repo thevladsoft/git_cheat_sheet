@@ -378,6 +378,9 @@ print tabu.backgroundRole()
     
 #def anchory(i):
    #texty.scrollToAnchor(anclas[i])
+def busca():
+  texty.find("git")
+
 
 #-----Connects
 weby.loadStarted.connect(lambda : taby.setTabText(taby.indexOf(weby),"howtos(Loading...)"))
@@ -387,7 +390,8 @@ weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
 QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),man_charge)
 QObject.connect(text_ref,SIGNAL("anchorClicked(QUrl)"),man_charge)
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
-boton.clicked.connect(texty_2.backward)
+#boton.clicked.connect(texty_2.backward)
+boton.clicked.connect(busca)
 boton2.clicked.connect(lambda:weby.load(howto))
 #tabu.currentChanged.connect(anchory)
 tabu.currentChanged.connect(lambda i: texty.scrollToAnchor(anclas[i]))

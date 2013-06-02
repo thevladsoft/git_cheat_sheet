@@ -41,19 +41,19 @@ class FingerTabBarWidget(QtGui.QTabBar):
 
 #-----Funciones
 def man_charge(url):
-   #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[1])))
+   #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty[2])),texty[2].setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[1])))
    #ejecuto el comando
    proc_out=subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
    #me aseguro de que no de error
    if proc_out[1]=="":
       #cambio de tab de una vez, ahrro algo de tiempo
-      taby.setCurrentIndex(taby.indexOf(texty_2))
+      taby.setCurrentIndex(taby.indexOf(texty[2]))
       #cargo la página
       stringo=re.sub("h1      { text-align: center }","h1      { text-align: center; background: #6B72FF; color: white;font: bold 24px;}",proc_out[0])
       stringo=re.sub("h1>","h1><p></p>",stringo)
       #print stringo
-      #texty_2.setHtml(proc_out[0])
-      texty_2.setHtml(stringo)
+      #texty[2].setHtml(proc_out[0])
+      texty[2].setHtml(stringo)
       #Si no es repetida, la agrego a la lista
       if manlist[-1]!=url.toString():
 	manlist.append(url.toString())
@@ -74,12 +74,12 @@ def ref_charge():
     s = subprocess.Popen(["apropos", "^git"],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
     if s[1]=="":
 	#print "s"
-	#text_ref.setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title>"\
+	#texty[1].setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title>"\
 	#"<link charset=\"utf-8\" href=\"/style.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />"\
 	#"</head>"+'\n'+"<body><div class=\"content\"><pre>"+'\n'+\
 	#startre.sub(lambda m:"<a href=\"%(s1)s\">%(s2)s </a>" % {'s1':m.group(0), 's2':m.group(0)} ,s)+\
 	#"</pre></div></body></html>")
-	text_ref.setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title><link charset=\"utf-8\" href=\"/style.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /></head>"+'\n'+\
+	texty[1].setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title><link charset=\"utf-8\" href=\"/style.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /></head>"+'\n'+\
 			 "<STYLE type=\"text/css\">BODY { background: white; color: black;font: 14px;font-family: Consolas;}A:link { font:bold;font-family: Consolas }P {background: #6B72FF; color: white;font: bold 24px;font-family: Consolas;}</STYLE>" 
 			 "<body><div class=\"content\">"+"<pre>"+'\n'+"<p ><center>GIT's Commands REFERENCE</center></p>"+\
 			 startre.sub(lambda m:"<br> <a href=\"%(s1)s\">%(s2)s</a>" % {'s1':m.group(0), 's2':m.group(0)} ,s[0])+\
@@ -109,14 +109,20 @@ boton =  QPushButton("Click me")
 boton2 =  QPushButton("Eat me")
 boton3 =  QPushButton("Drink me")
 #-----|-|-texto
-texty = QtGui.QTextBrowser()
-texty_2 = QtGui.QTextBrowser()
-text_ref = QtGui.QTextBrowser()
-weby=QWebView()
+texty = []#0:cheat;1:ref;2:man;3:howto(qwebview)
+#texty[0] = QtGui.QTextBrowser()
+texty.append(QtGui.QTextBrowser())
+texty.append(QtGui.QTextBrowser())
+texty.append(QtGui.QTextBrowser())
+texty.append(QWebView())
+#texty[2] = QtGui.QTextBrowser()
+#texty[1] = QtGui.QTextBrowser()
+#weby=QWebView()
 #-----|-|-----/
 #-----|-----/
 #-----|-Layouts
-layi_taby1 = QHBoxLayout()
+#layi_taby1 = QHBoxLayout()
+layi_taby1 = QGridLayout()
 grid=QGridLayout()
 #-----|-----/
 
@@ -165,7 +171,7 @@ ventana.setMinimumSize(150,300)
 ventana.resize(650,630)
 
 #-----|-Textos
-weby.setHtml("<center><p style=\"font-size:300%;color:blue\"><b>Git's How Tos</b></p></center>")
+texty[3].setHtml("<center><p style=\"font-size:300%;color:blue\"><b>Git's How Tos</b></p></center>")
 manlist = ["git"]
 #Para quitar el marco alrededor de tabby y por tanto de los widgets que contiene.
 taby.setDocumentMode(True)
@@ -174,10 +180,10 @@ f.setPixelSize(12)
 f.setBold(True)
 taby.tabBar().setFont(f)
 
-texty.setHtml(texto)
-texty.setOpenLinks(False)
+texty[0].setHtml(texto)
+texty[0].setOpenLinks(False)
 
-text_ref.setOpenLinks(False)
+texty[1].setOpenLinks(False)
 
 
 #-----|-Tabs
@@ -218,18 +224,18 @@ layi_taby1.setSpacing(0)
 
 #-----Iniciar Widgets
 #-----|-Primeras cargas
-weby.load(howto)
+texty[3].load(howto)
 
 man_charge(QUrl(manlist[0]))
-#texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , manlist[0]],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[0])
+#texty[2].setHtml(subprocess.Popen(["man", "--troff-device=html" , manlist[0]],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[0])
 
 ref_charge()
 
 #-----|-Crear tabs de los tabbars y tabwidgets
 taby.addTab(widget_taby1,"Cheats")
-taby.addTab(text_ref,"Comandos")
-taby.addTab(texty_2,"man")
-taby.addTab(weby,"howtos(Loading...)")
+taby.addTab(texty[1],"Comandos")
+taby.addTab(texty[2],"man")
+taby.addTab(texty[3],"howtos(Loading...)")
 for x in anclas:
     tabu.addTab(x)
 #-----|-Llenar layouts
@@ -237,10 +243,11 @@ for x in anclas:
 grid.addWidget(boton,0,0)
 grid.addWidget(boton2,0,1)
 grid.addWidget(boton3,0,2)
-grid.addWidget(taby,1,0,1,3)
+
+grid.addWidget(taby,2,0,1,4)
 #-----|-|-layi_taby es el Layout asignado a cada tab(1 es el primero)
-layi_taby1.addWidget(tabu)
-layi_taby1.addWidget(texty)
+layi_taby1.addWidget(tabu,1,0)
+layi_taby1.addWidget(texty[0],1,1)
 #-----|-|-----/
 #-----|-----/
 #----------/
@@ -252,10 +259,10 @@ widget_taby1.setLayout(layi_taby1)
 #-----|-----/
 #----------/
 #def howtos_changing(widget):
-  #taby.setTabText(taby.indexOf(weby),"howtos(Loading...)")
+  #taby.setTabText(taby.indexOf(texty[3]),"howtos(Loading...)")
   ##print("a")
 #def howtos_changed():
-  #taby.setTabText(taby.indexOf(weby),"howtos")
+  #taby.setTabText(taby.indexOf(texty[3]),"howtos")
   ##print("b")
 
 
@@ -372,40 +379,47 @@ print tabu.backgroundRole()
   ##print uri
   ##subprocess.call("kioclient exec man:"+url.toString())
     ##subprocess.call(["kioclient", "exec", "man:"+url.toString()])
-    ##texty_2.setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
-    #texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])
+    ##texty[2].setHtml(subprocess.check_output(["man", "--troff-device=html" , url.toString()]))
+    #texty[2].setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])
     ##texty.setOpenLinks(True)
     
 #def anchory(i):
    #texty.scrollToAnchor(anclas[i])
 def busca():
-  texty.find("git")
+  texty[0].find("git")
 
 
 #-----Connects
-weby.loadStarted.connect(lambda : taby.setTabText(taby.indexOf(weby),"howtos(Loading...)"))
-weby.loadFinished.connect(lambda :taby.setTabText(taby.indexOf(weby),"howtos"))
+texty[3].loadStarted.connect(lambda : taby.setTabText(taby.indexOf(texty[3]),"howtos(Loading...)"))
+texty[3].loadFinished.connect(lambda :taby.setTabText(taby.indexOf(texty[3]),"howtos"))
 #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),printuri)
-#QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty_2)),texty_2.setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])))
-QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),man_charge)
-QObject.connect(text_ref,SIGNAL("anchorClicked(QUrl)"),man_charge)
+#QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty[2])),texty[2].setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE).communicate()[0])))
+QObject.connect(texty[0],SIGNAL("anchorClicked(QUrl)"),man_charge)
+QObject.connect(texty[1],SIGNAL("anchorClicked(QUrl)"),man_charge)
+
+QObject.connect(finder,SIGNAL("returnPressed()"),lambda:texty[taby.currentIndex()].find(finder.text()) or (texty[taby.currentIndex()].moveCursor(QTextCursor.Start),texty[taby.currentIndex()].find(finder.text())))
+finder.next.clicked.connect(lambda:texty[taby.currentIndex()].find(finder.text()) or (texty[taby.currentIndex()].moveCursor(QTextCursor.Start),texty[taby.currentIndex()].find(finder.text())))
+#bacward está raro
+finder.prev.clicked.connect(lambda:texty[taby.currentIndex()].find(finder.text(),QTextDocument.FindBackward) or (texty[taby.currentIndex()].moveCursor(QTextCursor.End),texty[taby.currentIndex()].find(finder.text(),QTextDocument.FindBackward)))
+
 #QObject.connect(boton,SIGNAL("anchorClicked(QUrl)"),printuri)
-#boton.clicked.connect(texty_2.backward)
-boton.clicked.connect(busca)
-boton2.clicked.connect(lambda:weby.load(howto))
+#boton.clicked.connect(texty[2].backward)
+#boton.clicked.connect(busca)
+boton.clicked.connect(lambda:texty[3].findText("git",QWebPage.FindBackward))
+boton2.clicked.connect(lambda:texty[3].load(howto))
 #tabu.currentChanged.connect(anchory)
-tabu.currentChanged.connect(lambda i: texty.scrollToAnchor(anclas[i]))
+tabu.currentChanged.connect(lambda i: texty[0].scrollToAnchor(anclas[i]))
 #def anchorClicked(uri):
 #  print uri
-boton3.clicked.connect(lambda : texty_2.scrollToAnchor(" "))
+boton3.clicked.connect(lambda : texty[2].scrollToAnchor(" "))
 
 #def roor():
-  #print texty_2.source().toString()
+  #print texty[2].source().toString()
   #for x in manlist:
      #print x
   ##print manlist[0]
   ##print manlist[len(manlist)-1]
-#QObject.connect(texty_2,SIGNAL("sourceChanged(QUrl)"),roor)
+#QObject.connect(texty[2],SIGNAL("sourceChanged(QUrl)"),roor)
 #----------/
 #-----Ultimos pasos
 ventana.show()

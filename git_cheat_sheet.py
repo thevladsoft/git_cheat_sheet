@@ -10,7 +10,7 @@ import re
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.QtWebKit import QWebView
+from PyQt4.QtWebKit import QWebView, QWebPage
 #-----Importar adicionales
 #----------/
 
@@ -115,6 +115,14 @@ texty.append(QtGui.QTextBrowser())
 texty.append(QtGui.QTextBrowser())
 texty.append(QtGui.QTextBrowser())
 texty.append(QWebView())
+texty[len(texty)-1].find = lambda *args: QWebView.findText(texty[len(texty)-1],args[0],QWebPage.FindWrapsAroundDocument) if len(args)==1 else QWebView.findText(texty[len(texty)-1],args[0],QWebPage.FindWrapsAroundDocument|QWebPage.FindBackward)
+texty[len(texty)-1].moveCursor = ()
+finder = QtGui.QLineEdit()
+#-----|-|-|-botones asociados
+finder.next = QPushButton("Next")
+finder.prev = QPushButton("Prev.")
+#-----|-|-|-----/
+finder.label = QtGui.QLabel("Search: ")
 #texty[2] = QtGui.QTextBrowser()
 #texty[1] = QtGui.QTextBrowser()
 #weby=QWebView()
@@ -182,6 +190,8 @@ taby.tabBar().setFont(f)
 
 texty[0].setHtml(texto)
 texty[0].setOpenLinks(False)
+finder.label.setAlignment(Qt.AlignVCenter |Qt.AlignRight)
+#finder.label.setFrameStyle(QFrame.StyledPanel | QFrame.Raised)
 
 texty[1].setOpenLinks(False)
 
@@ -243,6 +253,10 @@ for x in anclas:
 grid.addWidget(boton,0,0)
 grid.addWidget(boton2,0,1)
 grid.addWidget(boton3,0,2)
+grid.addWidget(finder.label,1,0,1,1)
+grid.addWidget(finder,1,1,1,1)
+grid.addWidget(finder.next,1,2,1,1)
+grid.addWidget(finder.prev,1,3,1,1)
 
 grid.addWidget(taby,2,0,1,4)
 #-----|-|-layi_taby es el Layout asignado a cada tab(1 es el primero)

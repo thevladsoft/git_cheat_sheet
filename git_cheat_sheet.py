@@ -449,6 +449,7 @@ boton3.clicked.connect(lambda : texty[2].scrollToAnchor(" "))
 #----------/
 #-----Ultimos pasos
 ventana.show()
+app.setWindowIcon(QIcon("git-logo.png"))
 #----------/
 #-----Comenzar la corrida
 sys.exit(app.exec_()) 

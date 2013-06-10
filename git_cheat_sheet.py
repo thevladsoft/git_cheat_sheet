@@ -1,8 +1,10 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #-----Importar delsistema
 import sys
 import subprocess
 import re
+import os
 #from time import sleep
 #----------/
 #-----Importar de PyQt4
@@ -14,7 +16,14 @@ from PyQt4.QtWebKit import QWebView, QWebPage
 #-----Importar adicionales
 #----------/
 
-#podria usar "apropos git-" para saber las paginas del man que contengan git-etc.
+#-----Setear el sistema
+#Si leyese información adicional del sistema indispensable para el resto del programa, 
+#como argumentos, version de python,etc, debo verlo aquí
+os.chdir(sys.path[0])
+print sys.version_info
+#----------/
+
+#podria usar "apropos git-" para saber las paginas del man que contengan git-etc. (ya lo hago.)
 
 #-----Clases
 class FingerTabBarWidget(QtGui.QTabBar):

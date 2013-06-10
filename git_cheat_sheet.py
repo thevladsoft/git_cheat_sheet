@@ -52,6 +52,7 @@ class FingerTabBarWidget(QtGui.QTabBar):
 def man_charge(url):
    #QObject.connect(texty,SIGNAL("anchorClicked(QUrl)"),lambda url:(manlist[-1]!=url.toString() and manlist.append(url.toString())  ,taby.setCurrentIndex(taby.indexOf(texty[2])),texty[2].setHtml(subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()[1])))
    #ejecuto el comando
+   #Debería poder hacer: subprocess.call(["man", "--troff-device=html", "man:"+url.toString()]) si la version de python>=2.7 (sys.version_info[1]>=7)
    proc_out=subprocess.Popen(["man", "--troff-device=html" , url.toString()],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
    #me aseguro de que no de error
    if proc_out[1]=="":
@@ -80,6 +81,7 @@ def man_charge(url):
 
 def ref_charge():
     startre = re.compile("^git[^ ]*", re.IGNORECASE | re.MULTILINE);
+    #Debería poder hacer: subprocess.call(["apropos", "^git") si la version de python>=2.7 (sys.version_info[1]>=7)
     s = subprocess.Popen(["apropos", "^git"],stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
     if s[1]=="":
 	#print "s"

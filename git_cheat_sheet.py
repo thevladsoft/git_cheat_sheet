@@ -93,7 +93,8 @@ def ref_charge():
 	texty[1].setHtml("<!DOCTYPE html><html><head><title>$ Git man pages</title><link charset=\"utf-8\" href=\"/style.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" /></head>"+'\n'+\
 			 "<STYLE type=\"text/css\">BODY { background: white; color: black;font: 14px;font-family: Consolas;}A:link { font:bold;font-family: Consolas }P {background: #6B72FF; color: white;font: bold 24px;font-family: Consolas;}</STYLE>" 
 			 "<body><div class=\"content\">"+"<pre>"+'\n'+"<p ><center>GIT's Commands REFERENCE</center></p>"+\
-			 startre.sub(lambda m:"<br> <a href=\"%(s1)s\">%(s2)s</a>" % {'s1':m.group(0), 's2':m.group(0)} ,s[0])+\
+			 #startre.sub(lambda m:"<br> <a href=\"%(s1)s\">%(s2)s</a>" % {'s1':m.group(0), 's2':m.group(0)} ,s[0])+\
+			 startre.sub(lambda m:"<br> <a href=\"%s\">%s</a>" % (m.group(0), m.group(0)) ,s[0])+\
 			 "</pre></div></body></html>")
     else:
 	print s[1]
